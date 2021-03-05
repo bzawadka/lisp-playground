@@ -1,6 +1,12 @@
 # lisp-playground
 
-## hello, Lisp
+## run once
 sbcl --script hello.lisp
-sbcl --load hello.lisp --quit
+
+## run interactively
+sbcl --load guess-my-number.lisp
+
+## resources
+https://google.github.io/styleguide/lispguide.xml
+https://stevelosh.com/blog/2018/08/a-road-to-common-lisp
 
