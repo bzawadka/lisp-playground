@@ -1,3 +1,4 @@
+;; defining in-memory CD Database and functions
 (defvar *db* nil)
 
 (defun make-cd (title artist rating ripped)
@@ -16,6 +17,8 @@
 
 ;; *db*
 
+
+;; impvoring the user interaction
 (defun prompt-read (prompt)
   (format *query-io* "~a: " prompt)
   (force-output *query-io*)
@@ -31,3 +34,19 @@
 (defun add-cds ()
   (loop (add-record (prompt-for-cd))
 	(if (not (y-or-n-p "Another? [y/n]: ")) (return))))
+
+
+;; saving and loading the database
+(defun save-db (filename)
+  (with-open-file (out filename
+		       :direction :output
+		       :if-exists :supersede)
+    (with-standard-io-syntax
+      (print *db* out))))
+
+(defun load-db (filename)
+  (with-open-file (in filenime)
+    (with-standard-io-syntax
+      (setf *db* (read in)))))
+
+
