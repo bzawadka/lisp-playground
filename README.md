@@ -1,14 +1,21 @@
 # lisp-playground
 
 ## run once
-sbcl --script hello.lisp
+`sbcl --script hello.lisp`
 
 ## run interactively
-sbcl --load guess-my-number.lisp
+`sbcl --load guess-my-number.lisp`
 
 ## run from REPL
+```
 sbcl
 (load "hello.lisp")
+```
+or
+```
+clisp
+(load "hello.lisp")
+```
 
 ## resources
 https://google.github.io/styleguide/lispguide.xml
