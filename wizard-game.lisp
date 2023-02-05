@@ -28,3 +28,10 @@
 ; location - current player's location
 (defun describe-paths (location edges)
   (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
+
+(defparameter *objects* '(whiskey bucket frog chain))
+
+(defparameter *object-locations* '((whisky living-room)
+                                      (bucket living-room)
+                                      (chain garden)
+                                      (frog garden)))
