@@ -31,7 +31,12 @@
 
 (defparameter *objects* '(whiskey bucket frog chain))
 
-(defparameter *object-locations* '((whisky living-room)
+(defparameter *object-locations* '((whiskey living-room)
                                       (bucket living-room)
                                       (chain garden)
                                       (frog garden)))
+
+(defun objects-at (loc objs obj-locs)
+  (labels ((at-loc-p (obj)
+             (eq loc (cadr (assoc obj obj-locs)))))
+     (remove-if-not #'at-loc-p objs)))
