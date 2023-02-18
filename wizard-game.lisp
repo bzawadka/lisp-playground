@@ -40,3 +40,9 @@
   (labels ((at-loc-p (obj)
              (eq loc (cadr (assoc obj obj-locs)))))
      (remove-if-not #'at-loc-p objs)))
+
+(defun describe-objects (loc objs obj-locs)
+  (labels ((describe-obj (obj)
+             `(you see a ,obj on the floor.)))
+    (apply #'append (mapcar #'describe-obj (objects-at loc objs obj-locs)))))
+; calling objects-at to find the objects at the curent location
